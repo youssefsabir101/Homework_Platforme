@@ -1,0 +1,28 @@
+Private Sub Workbook_Open()
+    Dim username As String
+    Dim password As String
+    Dim validUser As Boolean
+    Dim attempts As Integer
+    
+    validUser = False
+    attempts = 0
+    
+    Do While Not validUser And attempts  3
+        username = InputBox(Enter username)
+        password = InputBox(Enter password)
+        
+        If username = 123 And password = 1 Then
+            validUser = True
+            MsgBox Welcome!
+        Else
+            MsgBox Invalid username or password. Please try again.
+            attempts = attempts + 1
+        End If
+    Loop
+    
+    If Not validUser Then
+        MsgBox Too many failed attempts. The workbook will now close.
+        ThisWorkbook.Close SaveChanges=False
+    End If
+End Sub
+

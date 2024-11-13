@@ -1,0 +1,28 @@
+# Ignore environment variables and sensitive files
+.env
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore Next.js build directory
+.next/
+
+# Ignore lock files
+package-lock.json
+
+# Ignore Prisma generated files if any (optional)
+prisma/.db/
+
+# Ignore build artifacts
+dist/
+
+# Ignore temporary files
+*.log
+*.tmp
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore Tailwind/PostCSS config files if they don't need to be tracked
+postcss.config.mjs
+tailwind.config.js
