@@ -1,27 +1,3 @@
-/* // app/api/assignments/route.js
-import prisma from "@/lib/prisma";
-import { NextResponse } from "next/server";
-
-// Handle GET requests
-export async function GET() {
-  try {
-    const assignments = await prisma.homework.findMany({
-      include: {
-        category: true, // Include category details
-        teacher: true,  // Include teacher details
-      },
-    });
-    
-    return NextResponse.json(assignments);
-  } catch (error) {
-    console.error("Error fetching homework:", error);
-    return NextResponse.json({ error: "Failed to fetch assignments" }, { status: 500 });
-  }
-}
-
-
-
- */
 // app/api/assignments/route.js
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
