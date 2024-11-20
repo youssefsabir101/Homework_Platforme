@@ -530,7 +530,7 @@ export default function Home() {
             {features.map((feature, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 transform"
+                className="bg-white bg-opacity-70 p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 transform"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -563,7 +563,7 @@ export default function Home() {
           <SectionTitle>Get in Touch</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div 
-              className="bg-white p-6 rounded-lg shadow-md"
+              className="bg-white bg-opacity-70 p-6 rounded-lg shadow-md"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -612,7 +612,7 @@ export default function Home() {
               </form>
             </motion.div>
             <motion.div 
-              className="bg-white p-6 rounded-lg shadow-md"
+              className="bg-white bg-opacity-70 p-6 rounded-lg shadow-md"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -653,26 +653,15 @@ export default function Home() {
       {/* Footer */}
       
       <footer className="relative text-white">
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 1440 320" 
-          className="w-full h-auto border-none"
-        >
-          <path 
-            fill="#0070f3" 
-            fillOpacity="1" 
-            d="M0,96L26.7,112C53.3,128,107,160,160,170.7C213.3,181,267,171,320,149.3C373.3,128,427,96,480,80C533.3,64,587,64,640,101.3C693.3,139,747,213,800,208C853.3,203,907,117,960,122.7C1013.3,128,1067,224,1120,234.7C1173.3,245,1227,171,1280,144C1333.3,117,1387,139,1413,149.3L1440,160L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"
-          ></path>
-        </svg>
-        <div className="-mt-6 bg-[#0070f3] pt-12 pb-8 px-6 border-none">
+        <div className="mt-6 pt-32 pb-8 px-6 border-none bg-gradient-to-t from-[#0071f39a]">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-3xl font-bold">Wajibati</h3>
-              <p className="text-xl text-red-200">apprentissage simplifié</p>
+              <h3 className="text-3xl font-bold text-blue-600">Wajibati</h3>
+              <p className="text-xl text-gray-200">apprentissage simplifié</p>
             </div>
             
             <div className="mt-6 md:mt-0 text-center">
-              <p className="text-lg text-red-200">&copy; {new Date().getFullYear()} sabir. All rights reserved.</p>
+              <p className="text-lg text-gray-200">&copy; {new Date().getFullYear()} sabir. All rights reserved.</p>
             </div>
           </div>
         </div>

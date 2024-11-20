@@ -73,7 +73,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-2">
         <div className="flex justify-between items-center">
           {/* Logo Section */}
-          <Link href="#home-page">
+          <Link href="/#home-page">
             <span className="text-xl cursor-pointer text-blue-600 font-extrabold">
               wajibati
             </span>
@@ -82,10 +82,10 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <Link href="#how-to-use" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">How to Use</Link>
-              <Link href="#about-app" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">About App</Link>
-              <Link href="#features" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">Features</Link>
-              <Link href="#contact" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">Contact</Link>
+              <Link href="/#how-to-use" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">How to Use</Link>
+              <Link href="/#about-app" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">About App</Link>
+              <Link href="/#features" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">Features</Link>
+              <Link href="/#contact" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">Contact</Link>
             </div>
           </div>
 
@@ -120,7 +120,7 @@ export default function Navbar() {
                       className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10"
                     >
                       <button
-                        onClick={() => setIsLoggedIn(false)}
+                        onClick={handleLogout}
                         className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Logout
@@ -159,22 +159,22 @@ export default function Navbar() {
               className="md:hidden mt-2"
             >
               <div className="flex flex-col space-y-2">
-                <Link href="#how-to-use">
+                <Link href="/#how-to-use">
                   <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
                     How to Use
                   </span>
                 </Link>
-                <Link href="#about-app">
+                <Link href="/#about-app">
                   <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
                     About App
                   </span>
                 </Link>
-                <Link href="#features">
+                <Link href="/#features">
                   <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
                     Features
                   </span>
                 </Link>
-                <Link href="#contact">
+                <Link href="/#contact">
                   <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
                     Contact
                   </span>
@@ -200,7 +200,7 @@ export default function Navbar() {
                       {userName} <span className="text-gray-600">({userRole})</span>
                     </div>
                     <button
-                      onClick={() => setIsLoggedIn(false)}
+                      onClick={handleLogout}
                       className="block w-full text-left py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md"
                     >
                       Logout
