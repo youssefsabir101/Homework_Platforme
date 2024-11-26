@@ -220,16 +220,16 @@ export default function ViewStudentSubmission() {
       transition={{ duration: 0.5 }}
     >
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
-        <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-800">
+        <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">
           <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
-            <FaHome className="mr-1" /> Home
+            <FaHome className="mr-1 text-blue-500" /> Home
           </motion.a>
           <span>/</span>
           <motion.a whileHover={{ scale: 1.05 }} href="/teacher/dashboard" className="flex items-center hover:underline">
-            <FaChalkboardTeacher className="mr-1" /> Dashboard
+            <FaChalkboardTeacher className="mr-1 text-blue-500" /> Dashboard
           </motion.a>
           <span>/</span>
-          <span className="font-semibold">View Response: {submission.studentName}</span>
+          <span className="font-semibold text-blue-500">View Response: {submission.studentName}</span>
         </div>
       </nav>
 
@@ -244,13 +244,13 @@ export default function ViewStudentSubmission() {
           variants={itemVariants}
         >
           <motion.h1 
-            className="flex items-center text-3xl font-bold mb-6  text-blue-800"
+            className="flex items-center text-3xl font-bold mb-6  text-blue-500"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="w-2 h-6 bg-blue-800 mr-3 flex-shrink-0"></div>
-            <h1 className="text-2xl font-bold text-blue-800">
+            <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
+            <h1 className="text-2xl font-bold text-blue-500">
             Student Submission
             </h1>
           </motion.h1>
@@ -289,10 +289,10 @@ export default function ViewStudentSubmission() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Attached File:</label>
                   <p className="text-lg mb-2">{submission.formattedFileName}</p>
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 -ml-6">
                     <motion.button
                       onClick={() => setIsPreviewOpen(true)}
-                      className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors flex items-center"
+                      className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition-colors flex items-center"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -300,7 +300,7 @@ export default function ViewStudentSubmission() {
                     </motion.button>
                     <motion.button
                       onClick={handleDownload}
-                      className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition-colors flex items-center"
+                      className="border border-blue-500 text-blue-500 px-4 py-2 rounded-full hover:bg-blue-500 hover:text-white transition-colors flex items-center"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

@@ -184,13 +184,13 @@ export default function StudentHomework() {
       <BackgroundShapes />
 
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
-        <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-800">
+        <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">
           <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
             <FaHome className="mr-1" /> Home
           </motion.a>
           <span>/</span>
           <span className="font-semibold flex items-center">
-            <FaBook className="mr-1" /> Homeworks
+            <FaBook className="mr-1 text-blue-500" /><span className="font-semibold text-blue-500">Homeworks</span>
           </span>
         </div>
       </nav>
@@ -206,8 +206,8 @@ export default function StudentHomework() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="w-2 h-6 bg-blue-800 mr-3 flex-shrink-0"></div>
-          <h1 className="text-2xl font-bold text-blue-800">
+          <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
+          <h1 className="text-2xl font-bold text-blue-500">
             Homework Assignments
           </h1>
         </motion.h1>

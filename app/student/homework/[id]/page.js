@@ -297,16 +297,16 @@ export default function HomeworkDetail() {
       <BackgroundShapes />
 
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
-        <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-800">
+        <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">
           <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
-            <FaHome className="mr-1" /> Home
+            <FaHome className="mr-1 text-blue-500" /> Home
           </motion.a>
           <span>/</span>
           <motion.a whileHover={{ scale: 1.05 }} href="/student/homework" className="flex items-center hover:underline">
-            <FaBook className="mr-1" /> Homeworks
+            <FaBook className="mr-1 text-blue-500" /> Homeworks
           </motion.a>
           <span>/</span>
-          <span className="font-semibold">{homework?.title}</span>
+          <span className="font-semibold text-blue-500">{homework?.title}</span>
         </div>
       </nav>
 
