@@ -127,7 +127,7 @@ export default function TeacherDashboard() {
   return (
     <>
       <motion.div 
-        className=" min-h-screen bg-gradient-to-br from-blue-100 to-purple-200 pt-16 z-100 pb-24"
+        className=" min-h-screen bg-gradient-to-br from-blue-100 to-white overflow-hidden pt-16 z-100 pb-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -158,8 +158,8 @@ export default function TeacherDashboard() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <div className="w-2 h-6 bg-blue-800 mr-3 flex-shrink-0"></div>
-              <h1 className="text-2xl font-bold text-blue-800">
+              <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
+              <h1 className="text-2xl font-bold text-blue-500">
               Teacher Dashboard
               </h1>
             </motion.h1>
@@ -180,7 +180,7 @@ export default function TeacherDashboard() {
               </div>
               <motion.button
                 onClick={() => router.push("/teacher/manage/add")}
-                className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors flex items-center"
+                className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-500 transition-colors flex items-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -189,7 +189,7 @@ export default function TeacherDashboard() {
             </motion.div>
 
             <motion.div 
-              className="overflow-x-auto"
+              className="overflow-x-auto hidden_scroll"
               variants={itemVariants}
             >
               <table className="w-full">
@@ -204,14 +204,17 @@ export default function TeacherDashboard() {
                 </thead>
                 <tbody>
                   <AnimatePresence>
-                    {currentHomeworks.map((homework) => (
+                    {currentHomeworks.map((homework ,index) => (
                       <motion.tr 
                         key={homework.id}
-                        className="border-b border-gray-200 hover:bg-gray-50"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
+                        className="border-b border-gray-200 hover:bg-blue-100"
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ 
+                          duration: 0.3,
+                          delay: index * 0.15,
+                          ease: "easeOut"
+                        }}
                       >
                         <td className="p-3">{homework.title}</td>
                         <td className="p-3 max-w-xs truncate">{homework.description}</td>

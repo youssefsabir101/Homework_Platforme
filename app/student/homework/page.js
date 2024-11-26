@@ -121,7 +121,7 @@ export default function StudentHomework() {
   }, []);
 
   if (loading) return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-purple-200">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-white">
       <motion.div
         className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
         animate={{ rotate: 360 }}
@@ -131,7 +131,7 @@ export default function StudentHomework() {
   );
 
   if (error) return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-purple-200">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-white">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -257,32 +257,36 @@ export default function StudentHomework() {
             return (
               <motion.div
                 key={homework.id}
-                className="bg-white mx-2 border rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 transform overflow-hidden hover:scale-105" 
+                className="bg-white  md:mx-2 my-1 border rounded-md shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 transform overflow-hidden hover:scale-105 relative" 
                 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -5 }}
               >
-                <div className={`h-2 ${categoryColor}`} />
+                <div className={`absolute -top-6 left-0 w-2 h-20 rotate-45  ${categoryColor}`} />
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold mb-2">{homework.title}</h2>
-                  <p className="text-gray-600 mb-4">{homework.description}</p>
+                  <h2 className="text-xl font-semibold mb-2 truncate">{homework.title}</h2>
+                  <p className="text-gray-600 mb-4 line-clamp-2">{homework.description}</p>
                   <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
-                    <span>Due: {new Date(homework.dueDate).toLocaleDateString()}</span>
-                    <span>{homework.category ? homework.category.name : 'No Category'}</span>
+                    <span>{homework.teacher && (
+                            <p className="text-gray-500 mb-4">Created by: {homework.teacher.name}</p>
+                          )}
+                    </span>
+                    <span className="text-blue-500 font-semibold">{homework.category ? homework.category.name : 'No Category'}</span>
                   </div>
-                  {homework.teacher && (
-                    <p className="text-gray-500 mb-4">Created by: {homework.teacher.name}</p>
-                  )}
+                  
+                  <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
                   <Link href={`/student/homework/${homework.id}`}>
                     <motion.button
-                      className="w-full bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition"
+                      className="px-4 py-2 border border-blue-500 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       View Details
                     </motion.button>
                   </Link>
+                    <span className="px-4 py-2 border border-blue-500 text-blue-500 rounded-full">Due: {new Date(homework.dueDate).toLocaleDateString()}</span>
+                  </div>
                 </div>
               </motion.div>
             );

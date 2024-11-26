@@ -96,7 +96,7 @@ export default function Navbar() {
             )}
             {isLoggedIn && userRole === "student" && (
               <Link href="/student/homework">
-                <span className="hover:text-blue-400 cursor-pointer">Homework List</span>
+                <span className="hover:text-blue-400 cursor-pointer font-semibold">Homework List</span>
               </Link>
             )}
             {isLoggedIn ? (

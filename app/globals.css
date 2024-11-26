@@ -37,4 +37,14 @@ nav {
   html {
     scroll-behavior: smooth;
   }
+
+
   
+  @media (min-width: 1024px) {
+    .hidden_scroll {
+      overflow-y: hidden; /* Hide vertical scrollbar */
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+  }
+  
+ 

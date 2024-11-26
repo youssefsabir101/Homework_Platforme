@@ -243,7 +243,7 @@ export default function HomeworkDetail() {
   };
 
   if (loading) return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-purple-200">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-white">
       <motion.div
         className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
         animate={{ rotate: 360 }}
@@ -253,7 +253,7 @@ export default function HomeworkDetail() {
   );
 
   if (error) return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-purple-200">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-white">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -289,7 +289,7 @@ export default function HomeworkDetail() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-200 pt-16 z-100"
+      className="min-h-screen bg-gradient-to-br from-blue-100 to-white overflow-hidden pt-16 z-100"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -326,18 +326,18 @@ export default function HomeworkDetail() {
             <p className="text-gray-700 text-lg mb-4">{homework.description}</p>
             <div className="flex flex-wrap gap-4 text-gray-600">
             <div className="flex items-center">
-              <FaCalendarAlt className="mr-2" />
+              <FaCalendarAlt className="mr-2 text-blue-500" />
               Due Date: {new Date(homework.dueDate).toLocaleDateString()}
               </div>
               {homework.category && (
                 <div className="flex items-center">
-                  <FaBook className="mr-2" />
+                  <FaBook className="mr-2 text-blue-500" />
                   Category: {homework.category.name}
                 </div>
               )}
               {homework.teacher && (
                 <div className="flex items-center">
-                  <FaUser className="mr-2" />
+                  <FaUser className="mr-2 text-blue-500" />
                   Created by: {homework.teacher.name}
                 </div>
               )}
