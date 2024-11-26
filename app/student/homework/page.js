@@ -176,7 +176,7 @@ export default function StudentHomework() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-200 pt-16 z-100"
+      className="min-h-screen  bg-gradient-to-b from-blue-100 to-white overflow-hidden pt-16 z-100"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -197,7 +197,7 @@ export default function StudentHomework() {
 
       <motion.div 
         ref={containerRef}
-        className="relative z-10 container mx-auto overflow-hidden mt-24"
+        className="relative z-10 container mx-auto overflow-hidden mt-24 h-full w-full p-8"
         style={{ y: containerY }}
       >
         <motion.h1 
@@ -246,7 +246,7 @@ export default function StudentHomework() {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 sm:gap-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:gap-2 lg:grid-cols-3 gap-6 py-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, staggerChildren: 0.1 }}
@@ -257,7 +257,8 @@ export default function StudentHomework() {
             return (
               <motion.div
                 key={homework.id}
-                className="bg-white mx-2 border rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className="bg-white mx-2 border rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 transform overflow-hidden hover:scale-105" 
+                
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -5 }}

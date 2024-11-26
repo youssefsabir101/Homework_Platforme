@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 const FilePreviewModal = ({ isOpen, onClose, fileUrl, fileName }) => {
   const getFileType = (url) => {
+    if (!url) return 'other'; // Check for null or undefined URL
     const extension = url.split('.').pop().toLowerCase();
     if (['jpg', 'jpeg', 'png', 'gif'].includes(extension)) return 'image';
     if (extension === 'pdf') return 'pdf';
@@ -34,13 +35,13 @@ const FilePreviewModal = ({ isOpen, onClose, fileUrl, fileName }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-semibold truncate">{fileName}</h3>
+              <h3 className="text-xl font-semibold truncate">{fileName || 'No File'}</h3>
               <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
                 <FaTimes size={24} />
               </button>
             </div>
             <div className="flex-grow overflow-auto">
-              {fileType === 'image' && (
+              {fileType === 'image' && fileUrl && (
                 <Image
                   src={fileUrl}
                   alt={fileName}
@@ -50,7 +51,7 @@ const FilePreviewModal = ({ isOpen, onClose, fileUrl, fileName }) => {
                   objectFit="contain"
                 />
               )}
-              {fileType === 'pdf' && (
+              {fileType === 'pdf' && fileUrl && (
                 <iframe
                   src={`${fileUrl}#view=FitH`}
                   title={fileName}
@@ -62,15 +63,17 @@ const FilePreviewModal = ({ isOpen, onClose, fileUrl, fileName }) => {
               {fileType === 'other' && (
                 <div className="text-center py-8">
                   <FaFileAlt size={48} className="mx-auto mb-4 text-gray-400" />
-                  <p>Preview not available for this file type.</p>
-                  <a
-                    href={fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 hover:underline mt-2 inline-block"
-                  >
-                    Open file in new tab
-                  </a>
+                  <p>{fileUrl ? 'Preview not available for this file type.' : 'No file to preview.'}</p>
+                  {fileUrl && (
+                    <a
+                      href={fileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline mt-2 inline-block"
+                    >
+                      Open file in new tab
+                    </a>
+                  )}
                 </div>
               )}
             </div>
@@ -80,6 +83,7 @@ const FilePreviewModal = ({ isOpen, onClose, fileUrl, fileName }) => {
     </AnimatePresence>
   );
 };
+
 
 export default function ViewStudentSubmission() {
   const { studentId } = useParams();
@@ -275,7 +279,7 @@ export default function ViewStudentSubmission() {
             <motion.div variants={itemVariants} className="flex items-start">
               <FaFileAlt className="text-blue-500 mr-2 mt-1" />
               <div>
-                <label className="block text-sm font-medium text-gray-700">Answer Text:</label>
+                <label className="block text-sm font-medium text-gray-700">Answer :</label>
                 <p className="text-lg">{submission.answareText || "No Answer Provided"}</p>
               </div>
             </motion.div>

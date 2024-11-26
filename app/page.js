@@ -138,7 +138,7 @@ const features = [
     title: "Homework Management",
     description: "Effortlessly manage homework assignments for your students.",
     bgColor: "bg-blue-100",
-    iconColor: "text-blue-600",
+    iconColor: "text-blue-500",
     benefits: [
       "Create new homework assignments",
       "Organize assignments by subject or class",
@@ -149,8 +149,8 @@ const features = [
     icon: FaEdit,
     title: "Edit Assignments",
     description: "Easily modify existing homework assignments as needed.",
-    bgColor: "bg-green-100",
-    iconColor: "text-green-600",
+    bgColor: "bg-blue-100",
+    iconColor: "text-blue-600",
     benefits: [
       "Update assignment details",
       "Adjust due dates",
@@ -161,8 +161,8 @@ const features = [
     icon: FaTrash,
     title: "Delete Homework",
     description: "Remove outdated or cancelled homework assignments.",
-    bgColor: "bg-red-100",
-    iconColor: "text-red-600",
+    bgColor: "bg-blue-100",
+    iconColor: "text-blue-600",
     benefits: [
       "Quickly delete unnecessary assignments",
       "Bulk delete options for efficiency",
@@ -173,8 +173,8 @@ const features = [
     icon: FaEye,
     title: "View Submissions",
     description: "Review and manage student homework submissions.",
-    bgColor: "bg-purple-100",
-    iconColor: "text-purple-600",
+    bgColor: "bg-blue-100",
+    iconColor: "text-blue-600",
     benefits: [
       "Access all student submissions in one place",
       "Track submission status and timestamps",
@@ -185,8 +185,8 @@ const features = [
     icon: FaFilter,
     title: "Filter Homework",
     description: "Students can easily find relevant assignments.",
-    bgColor: "bg-yellow-100",
-    iconColor: "text-yellow-600",
+    bgColor: "bg-blue-100",
+    iconColor: "text-blue-600",
     benefits: [
       "Filter homework by subject or category",
       "Sort assignments by due date",
@@ -197,8 +197,8 @@ const features = [
     icon: FaPaperPlane,
     title: "Submit Homework",
     description: "Students can effortlessly submit their completed assignments.",
-    bgColor: "bg-indigo-100",
-    iconColor: "text-indigo-600",
+    bgColor: "bg-blue-100",
+    iconColor: "text-blue-600",
     benefits: [
       "Easy-to-use submission interface",
       "Support for multiple file formats",
@@ -224,7 +224,7 @@ export default function Home() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
 
-  /* about section ================== */
+
 
   useEffect(() => {
     controls.start({ opacity: 1, y: 0 });
@@ -241,12 +241,12 @@ export default function Home() {
   return (
     <div className="w-full font-sans text-gray-900 bg-gradient-to-b from-blue-100 to-white overflow-hidden">
       {/* Background Squares */}
-      <BackgroundSquare className="bg-pink-500 top-1/2 left-1/2 z-0" initialX={0} initialY={0} direction="up" />
-      <BackgroundSquare className="bg-red-500 top-3/4 right-1/2 z-0" initialX={600} initialY={-50} direction="down" />
-      <BackgroundSquare className="bg-yellow-500 top-1/4 right-1/4 z-0" initialX={300} initialY={-50} direction="left" />
-      <BackgroundSquare className="bg-yellow-800 top-1/4 right-1/4 z-0" initialX={1000} initialY={-10} direction="left" />
-      <BackgroundSquare className="bg-purple-500 bottom-1/4 left-1/4 z-0" initialX={-300} initialY={-100} direction="right" />
-      <BackgroundSquare className="bg-purple-500 bottom-1/4 left-1/4 z-0" initialX={-900} initialY={-20} direction="up" />
+      <BackgroundSquare className="bg-blue-500 top-1/2 left-1/2 z-0" initialX={0} initialY={0} direction="up" />
+      <BackgroundSquare className="bg-sky-500 top-3/4 right-1/2 z-0" initialX={600} initialY={-50} direction="down" />
+      <BackgroundSquare className="bg-sky-500 top-1/4 right-1/4 z-0" initialX={300} initialY={-50} direction="left" />
+      <BackgroundSquare className="bg-blue-800 top-1/4 right-1/4 z-0" initialX={1000} initialY={-10} direction="left" />
+      <BackgroundSquare className="bg-sky-500 bottom-1/4 left-1/4 z-0" initialX={-300} initialY={-100} direction="right" />
+      <BackgroundSquare className="bg-indigo-500 bottom-1/4 left-1/4 z-0" initialX={-900} initialY={-20} direction="up" />
 
       {/* Hero Section */}
       <section id="home-page" className="relative z-10 min-h-screen flex items-center">
@@ -288,14 +288,19 @@ export default function Home() {
                 Simplifiez l'étude à domicile pour tous
               </motion.p>
               <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <motion.button
-                  className="flex justify-center items-center py-3 px-8 sm:px-10 text-base sm:text-lg font-bold tracking-wide leading-7 text-white bg-blue-600 rounded-md hover:bg-blue-800 w-full sm:w-auto transition duration-400 ease-in-out"
+                <motion.div
                   initial={{ opacity: 0, x: -500 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 1 }}
-                >
-                  Sign In
-                </motion.button>
+                  transition={{ duration: 0.5, delay: 1 }}>
+                  <Link href="/login"
+                    className="flex justify-center items-center py-3 px-8 sm:px-10 text-base sm:text-lg font-bold tracking-wide leading-7 text-white bg-blue-600 rounded-md hover:bg-blue-800 w-full sm:w-auto transition duration-400 ease-in-out"
+                    >
+                    <button className="" >
+                      Sign In
+                    </button>
+                  </Link>
+                </motion.div>
+                
                 <motion.button
                   className="flex items-center text-base sm:text-lg w-full sm:w-auto justify-center sm:justify-start"
                   initial={{ opacity: 0, x: -500 }}
@@ -308,47 +313,23 @@ export default function Home() {
                       <span className="font-bold tracking-wide text-blue-600 p-4 group-hover:text-white">Learn how to use it</span>
                     </span>
                   </Link>
-
-
                 </motion.button>
               </div>
             </div>
             <div 
               className="w-full md:w-1/2 relative h-[300px] sm:h-[400px] md:h-[500px]"
-              
             >
               <ImageComponent
                 src="/img/vec4.png"
                 alt="Productivity Illustration 1"
                 width={500}
                 height={500}
-                className="absolute w-full h-auto top-0 left-0 z-20"
+                className="absolute w-full md:ml-32 h-auto top-0 left-0 z-20"
                 style={{ rotate: -5 }}
                 initial={{ opacity: 0, x: 1000 ,rotate: 180}}
                 animate={{ opacity: 1, x: 0 ,rotate: 0}}
                 transition={{ duration: 0.5 }}
               />
-              {/* <ImageComponent
-                src="/img/vec2.png"
-                alt="Productivity Illustration 2"
-                width={500}
-                height={500}
-                className="absolute w-5/6 h-auto bottom-0 right-0 z-10"
-                style={{ rotate: 5 }}
-                initial={{ opacity: 0, x: 1000 ,rotate: 90}}
-                animate={{ opacity: 1, x: 0 ,rotate: 0}}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              />
-              <ImageComponent
-                src="/img/vec3.png"
-                alt="Productivity Illustration 3"
-                width={500}
-                height={500}
-                className="absolute w-2/3 h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
-                initial={{ opacity: 0, x: 1000 ,rotate: -180}}
-                animate={{ opacity: 1, x: 0 ,rotate: 0}}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              /> */}
             </div>
           </div>
         </div>
@@ -543,7 +524,7 @@ export default function Home() {
                 <ul className="text-sm text-gray-500 space-y-2">
                   {feature.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-start">
-                      <svg className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 text-blue-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
                       {benefit}
@@ -624,7 +605,7 @@ export default function Home() {
                   Your feedback is invaluable to us. Whether you've encountered an issue, have a brilliant idea for a new feature, or simply want to share your thoughts, we're all ears. Here's how you can reach out:
                 </p>
                 <div className="flex items-start space-x-2">
-                  <FaExclamationTriangle className="text-yellow-500 mt-1 flex-shrink-0" />
+                  <FaExclamationTriangle className="text-blue-500 mt-1 flex-shrink-0" />
                   <div>
                     <span className="font-semibold">Report an Issue:</span>
                     <p className="text-gray-600">Use the form to describe any problems you've encountered. Be as detailed as possible to help us resolve it quickly.</p>
@@ -638,7 +619,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <FaEnvelope className="text-green-500 mt-1 flex-shrink-0" />
+                  <FaEnvelope className="text-blue-500 mt-1 flex-shrink-0" />
                   <div>
                     <span className="font-semibold">General Inquiries:</span>
                     <p className="text-gray-600">For any other questions or comments, don't hesitate to reach out. We value every piece of feedback from our users.</p>

@@ -1,10 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useAnimation, AnimatePresence } from "framer-motion";
+
+
+const BackgroundSquare = ({ className, initialX, initialY, direction }) => {
+  const { scrollYProgress } = useScroll();
+  const x = useTransform(scrollYProgress, [0, 2], [initialX, initialX + (direction === 'left' ? -2000 : 2000)]);
+  const y = useTransform(scrollYProgress, [0, 2], [initialY, initialY + (direction === 'up' ? -1000 : 1000)]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.5, 1]);
+  
+  return (
+    <motion.div
+      className={`fixed w-60 h-60 rounded-full bg-opacity-50 blur-2xl ${className}`}
+      style={{ 
+        x,
+        y,
+        rotate,
+        scale,
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    />
+  );
+};
 
 export default function LoginPage() {
+  const { scrollYProgress } = useScroll();
+  const scrollY = useSpring(scrollYProgress);
+  const yProgress = useTransform(scrollY, [0, 1], [0, -3000]);
+  const opacityProgress = useTransform(scrollY, [0, 0.5], [1, 0]);
+  const controls = useAnimation();
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
+
   const [loginCode, setLoginCode] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,103 +93,16 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen py-6 flex flex-col justify-center sm:py-12 relative">
+    <div className="min-h-screen py-6 flex flex-col justify-center sm:py-12 relative bg-gradient-to-b from-blue-100 to-white overflow-hidden"> 
       {/* Shapes moving in the background */}
-      <motion.div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Circles */}
-        <motion.div
-          className="absolute bg-blue-200 rounded-full w-32 h-32"
-          style={{ top: "20%", left: "10%" }}
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        />
-        {/* Squares */}
-        <motion.div
-          className="absolute bg-green-300 w-24 h-24"
-          style={{ top: "50%", right: "15%" }}
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        />
-        {/* Triangles */}
-        <motion.div
-          className="absolute"
-          style={{
-            top: "35%",
-            left: "60%",
-            width: 0,
-            height: 0,
-            borderLeft: "30px solid transparent",
-            borderRight: "30px solid transparent",
-            borderBottom: "60px solid red",
-          }}
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        />
-        {/* Lines */}
-        <motion.div
-          className="absolute bg-purple-400 w-2 h-48"
-          style={{ top: "60%", left: "40%" }}
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        />
-        {/* Dots */}
-        <motion.div
-          className="absolute bg-yellow-400 w-6 h-6 rounded-full"
-          style={{ bottom: "20%", right: "30%" }}
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        />
-        {/* SVG - Circle */}
-        <motion.svg
-          className="absolute"
-          style={{ top: "10%", right: "40%" }}
-          width="100"
-          height="100"
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <circle cx="50" cy="50" r="40" stroke="orange" strokeWidth="3" fill="none" />
-        </motion.svg>
-        {/* New Shapes */}
-        {/* Additional Circle */}
-        <motion.div
-          className="absolute bg-pink-200 rounded-full w-16 h-16"
-          style={{ top: "10%", left: "30%" }}
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        />
-        {/* Additional Square */}
-        <motion.div
-          className="absolute bg-teal-300 w-16 h-16"
-          style={{ bottom: "15%", left: "20%" }}
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        />
-        {/* Additional Triangle */}
-        <motion.div
-          className="absolute"
-          style={{
-            bottom: "25%",
-            right: "60%",
-            width: 0,
-            height: 0,
-            borderLeft: "20px solid transparent",
-            borderRight: "20px solid transparent",
-            borderBottom: "40px solid blue",
-          }}
-          variants={shapeVariants}
-          initial="hidden"
-          animate="visible"
-        />
-      </motion.div>
+      {/* Background Squares */}
+      <BackgroundSquare className="bg-blue-500 top-1/2 left-1/2 z-0" initialX={0} initialY={0} direction="up" />
+      <BackgroundSquare className="bg-sky-500 top-3/4 right-1/2 z-0" initialX={600} initialY={-50} direction="down" />
+      <BackgroundSquare className="bg-sky-500 top-1/4 right-1/4 z-0" initialX={300} initialY={-50} direction="left" />
+      <BackgroundSquare className="bg-blue-800 top-1/4 right-1/4 z-0" initialX={1000} initialY={-10} direction="left" />
+      <BackgroundSquare className="bg-sky-500 bottom-1/4 left-1/4 z-0" initialX={-300} initialY={-100} direction="right" />
+      <BackgroundSquare className="bg-indigo-500 bottom-1/4 left-1/4 z-0" initialX={-900} initialY={-20} direction="up" />
+
 
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
         <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-100 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></motion.div>

@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// prisma/schema.prisma
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String?  @unique // Email is optional for students, required for teachers
+  loginCode String?  @unique // Unique code for student login
+  password  String
+  role      String // 'student' or 'teacher'
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relationships
+  assignments     Homework[]       @relation("TeacherAssignments")
+  submissions     Submission[]
+  viewedHomeworks ViewedHomework[] @relation("UserViewedHomeworks") // Explicit relation name
+}
+
+model Category {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  homeworks Homework[] // One category can have many homeworks
+}
+
+model Homework {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  dueDate     DateTime
+  fileUrl     String? // New column for storing the file URL
+  fileType    String? // New column for storing the file type (e.g., "application/pdf")
+  fileName    String? // New column for storing the original file name
+  fileBuffer  String? // Store the Base64 encoded string
+  categoryId  Int? // Foreign key for Category
+  category    Category? @relation(fields: [categoryId], references: [id]) // Relation to Category
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Relationships
+  teacher     User             @relation("TeacherAssignments", fields: [teacherId], references: [id])
+  teacherId   Int
+  submissions Submission[]
+  viewedBy    ViewedHomework[] @relation("HomeworkViewedBy") // Explicit relation name
+}
+
+model ViewedHomework {
+  userId     Int
+  homeworkId Int
+  user       User     @relation("UserViewedHomeworks", fields: [userId], references: [id]) // Provide a unique relation name
+  homework   Homework @relation("HomeworkViewedBy", fields: [homeworkId], references: [id]) // Provide a unique relation name
+
+  @@id([userId, homeworkId]) // Composite primary key
+  @@index([userId]) // Optional: Add an index on userId for performance
+  @@index([homeworkId]) // Optional: Add an index on homeworkId for performance
+  @@map("viewed_homework") // Optional: Specify the table name if needed
+}
+
+model Submission {
+  id          Int       @id @default(autoincrement())
+  content     String
+  submittedAt DateTime  @default(now())
+  fileUrl     String? // New column for storing the file URL
+  fileType    String? // New column for storing the file type (e.g., "image/jpeg", "application/pdf")
+  fileName    String? // New column for storing the original file name
+  answareText String? // new column for answar if necessary
+  // Relationships 
+  student     User      @relation(fields: [studentId], references: [id])
+  studentId   Int
+  homework    Homework  @relation(fields: [homeworkId], references: [id])
+  homeworkId  Int
+}

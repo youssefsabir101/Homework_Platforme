@@ -25,8 +25,8 @@ const BackgroundSquare = ({ className, initialX, initialY, direction }) => {
 const BackgroundAnimation = () => (
   <>
     <BackgroundSquare className="bg-blue-500" initialX={-500} initialY={0} direction="left" />
-    <BackgroundSquare className="bg-purple-500" initialX={500} initialY={0} direction="right" />
-    <BackgroundSquare className="bg-pink-500" initialX={0} initialY={500} direction="up" />
+    <BackgroundSquare className="bg-sky-500" initialX={500} initialY={0} direction="right" />
+    <BackgroundSquare className="bg-blue-500" initialX={0} initialY={500} direction="up" />
   </>
 );
 

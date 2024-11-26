@@ -34,7 +34,7 @@ export default function BackToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-500 text-white font-bold p-4  shadow-lg z-50 rounded-full"
+          className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-600 text-white font-bold p-4  shadow-lg z-50 rounded-full"
         >
           <FaArrowUp />
         </button>
