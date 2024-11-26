@@ -1,145 +1,86 @@
-generator client {
-  provider = "prisma-client-js"
-}
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// prisma/schema.prisma
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-model ViewedHomework {
-  userId     Int
-  homeworkId Int
-  homework   homework @relation("HomeworkViewedBy", fields: [homeworkId], references: [id])
-  user       user     @relation("UserViewedHomeworks", fields: [userId], references: [id])
-
-  @@id([userId, homeworkId])
-  @@index([homeworkId])
-  @@index([userId])
-  @@map("viewed_homework")
+generator client {
+  provider = "prisma-client-js"
 }
 
-model category {
-  id       Int        @id @default(autoincrement())
-  name     String     @unique(map: "Category_name_key")
-  homework homework[]
-}
-
-model classroom {
-  id        Int       @id @default(autoincrement())
+model User {
+  id        Int      @id @default(autoincrement())
   name      String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @default(now())
-  schoolId  Int
-  school    school    @relation(fields: [schoolId], references: [id], map: "Classroom_schoolId_fkey")
-  student   student[] @relation("studentclassrooms")
-  teacher   teacher[] @relation("teacherclassrooms")
-  user      user[]    @relation("userclassrooms")
+  email     String?  @unique // Email is optional for students, required for teachers
+  loginCode String?  @unique // Unique code for student login
+  password  String
+  role      String // 'student' or 'teacher'
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@index([schoolId], map: "Classroom_schoolId_fkey")
+  // Relationships
+  assignments     Homework[]       @relation("TeacherAssignments")
+  submissions     Submission[]
+  viewedHomeworks ViewedHomework[] @relation("UserViewedHomeworks") // Explicit relation name
 }
 
-model homework {
-  id          Int              @id @default(autoincrement())
+model Category {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  homeworks Homework[] // One category can have many homeworks
+}
+
+model Homework {
+  id          Int       @id @default(autoincrement())
   title       String
   description String
   dueDate     DateTime
-  createdAt   DateTime         @default(now())
-  updatedAt   DateTime
-  teacherId   Int?
-  fileName    String?
-  fileType    String?
-  fileUrl     String?
-  fileBuffer  String?
-  categoryId  Int?
-  userId      Int?
-  category    category?        @relation(fields: [categoryId], references: [id], map: "Homework_categoryId_fkey")
-  teacher     teacher?         @relation(fields: [teacherId], references: [id], map: "Homework_teacherId_fkey")
-  user        user?            @relation(fields: [userId], references: [id], map: "Homework_userId_fkey")
-  submission  submission[]
-  viewedBy    ViewedHomework[] @relation("HomeworkViewedBy")
+  fileUrl     String? // New column for storing the file URL
+  fileType    String? // New column for storing the file type (e.g., "application/pdf")
+  fileName    String? // New column for storing the original file name
+  fileBuffer  String? // Store the Base64 encoded string
+  categoryId  Int? // Foreign key for Category
+  category    Category? @relation(fields: [categoryId], references: [id]) // Relation to Category
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
-  @@index([categoryId], map: "Homework_categoryId_fkey")
-  @@index([teacherId], map: "Homework_teacherId_fkey")
-  @@index([userId], map: "Homework_userId_fkey")
+  // Relationships
+  teacher     User             @relation("TeacherAssignments", fields: [teacherId], references: [id])
+  teacherId   Int
+  submissions Submission[]
+  viewedBy    ViewedHomework[] @relation("HomeworkViewedBy") // Explicit relation name
 }
 
-model school {
-  id        Int         @id @default(autoincrement())
-  name      String
-  createdAt DateTime    @default(now())
-  updatedAt DateTime
-  classroom classroom[]
-  student   student[]
-  teacher   teacher[]
-  user      user[]
+model ViewedHomework {
+  userId     Int
+  homeworkId Int
+  user       User     @relation("UserViewedHomeworks", fields: [userId], references: [id]) // Provide a unique relation name
+  homework   Homework @relation("HomeworkViewedBy", fields: [homeworkId], references: [id]) // Provide a unique relation name
+
+  @@id([userId, homeworkId]) // Composite primary key
+  @@index([userId]) // Optional: Add an index on userId for performance
+  @@index([homeworkId]) // Optional: Add an index on homeworkId for performance
+  @@map("viewed_homework") // Optional: Specify the table name if needed
 }
 
-model student {
-  id         Int          @id @default(autoincrement())
-  name       String
-  loginCode  String?      @unique(map: "Student_loginCode_key")
-  password   String
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime
-  schoolId   Int?
-  school     school?      @relation(fields: [schoolId], references: [id], map: "Student_schoolId_fkey")
-  submission submission[]
-  classroom  classroom[]  @relation("studentclassrooms")
-
-  @@index([schoolId], map: "Student_schoolId_fkey")
-}
-
-model submission {
-  id          Int      @id @default(autoincrement())
+model Submission {
+  id          Int       @id @default(autoincrement())
   content     String
-  submittedAt DateTime @default(now())
-  studentId   Int?
+  submittedAt DateTime  @default(now())
+  fileUrl     String? // New column for storing the file URL
+  fileType    String? // New column for storing the file type (e.g., "image/jpeg", "application/pdf")
+  fileName    String? // New column for storing the original file name
+  answareText String? // new column for answar if necessary
+  // Relationships 
+  student     User      @relation(fields: [studentId], references: [id])
+  studentId   Int
+  homework    Homework  @relation(fields: [homeworkId], references: [id])
   homeworkId  Int
-  fileName    String?
-  fileType    String?
-  fileUrl     String?
-  answareText String?
-  userId      Int?
-  homework    homework @relation(fields: [homeworkId], references: [id], map: "Submission_homeworkId_fkey")
-  student     student? @relation(fields: [studentId], references: [id], map: "Submission_studentId_fkey")
-  user        user?    @relation(fields: [userId], references: [id], map: "Submission_userId_fkey")
-
-  @@index([homeworkId], map: "Submission_homeworkId_fkey")
-  @@index([studentId], map: "Submission_studentId_fkey")
-  @@index([userId], map: "Submission_userId_fkey")
-}
-
-model teacher {
-  id        Int         @id @default(autoincrement())
-  name      String
-  email     String?     @unique(map: "Teacher_email_key")
-  password  String
-  createdAt DateTime    @default(now())
-  updatedAt DateTime
-  schoolId  Int?
-  homework  homework[]
-  school    school?     @relation(fields: [schoolId], references: [id], map: "Teacher_schoolId_fkey")
-  classroom classroom[] @relation("teacherclassrooms")
-
-  @@index([schoolId], map: "Teacher_schoolId_fkey")
-}
-
-model user {
-  id         Int              @id @default(autoincrement())
-  name       String
-  email      String?          @unique(map: "User_email_key")
-  loginCode  String?          @unique(map: "User_loginCode_key")
-  password   String
-  role       String
-  createdAt  DateTime         @default(now())
-  updatedAt  DateTime
-  schoolId   Int?
-  homework   homework[]
-  submission submission[]
-  school     school?          @relation(fields: [schoolId], references: [id], map: "User_schoolId_fkey")
-  viewed     ViewedHomework[] @relation("UserViewedHomeworks")
-  classroom  classroom[]      @relation("userclassrooms")
-
-  @@index([schoolId], map: "User_schoolId_fkey")
 }

@@ -70,7 +70,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full backdrop-blur-sm bg-white/30 text-blue-800 fixed z-50">
-      <div className="container mx-auto px-4 py-2">
+      <div className="container mx-auto px-4 py-[6px]">
         <div className="flex justify-between items-center">
           {/* Logo Section */}
           <Link href="/#home-page">

@@ -197,7 +197,7 @@ export default function StudentHomework() {
 
       <motion.div 
         ref={containerRef}
-        className="relative z-10 container mx-auto overflow-hidden mt-24 h-full w-full p-8"
+        className="relative z-10 container mx-auto overflow-hidden mt-16 h-full w-full p-8"
         style={{ y: containerY }}
       >
         <motion.h1 

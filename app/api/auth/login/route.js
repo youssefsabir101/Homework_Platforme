@@ -14,9 +14,9 @@
         where: { loginCode, password, role: "student" },
       });
     } else if (role === "teacher") {
-      user = await prisma.teacher.findFirst({
+      user = await prisma.user.findFirst({
         where: { email, password, role: "teacher" },
-      });
+      });      
     }
   
     // Return error if user is not found
