@@ -104,7 +104,7 @@ export default function ViewHomework() {
   };
 
   if (loading) return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-purple-200">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-white overflow-hidden">
       <motion.div
         className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
         animate={{ rotate: 360 }}
@@ -114,7 +114,7 @@ export default function ViewHomework() {
   );
 
   if (error) return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-purple-200">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-white overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -127,7 +127,7 @@ export default function ViewHomework() {
   );
 
   if (!homework) return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-purple-200">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-white overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -141,7 +141,7 @@ export default function ViewHomework() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-200 pt-16"
+      className="min-h-screen bg-gradient-to-br from-blue-100 to-white overflow-hidden pt-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}

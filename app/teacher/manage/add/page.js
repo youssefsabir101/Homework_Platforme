@@ -136,7 +136,7 @@ export default function AddHomework() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-200 pt-16"
+      className="min-h-screen bg-gradient-to-br from-blue-100 to-white overflow-hidden pt-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}

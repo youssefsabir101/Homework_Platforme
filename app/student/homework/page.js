@@ -6,45 +6,6 @@ import { useRouter } from 'next/navigation';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { FaHome, FaBook, FaSearch, FaFilter, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-const BackgroundShapes = () => {
-  const shapes = [
-    { type: 'circle', size: 100, color: 'rgba(59, 130, 246, 0.2)' },
-    { type: 'square', size: 80, color: 'rgba(16, 185, 129, 0.2)' },
-    { type: 'triangle', size: 120, color: 'rgba(249, 115, 22, 0.2)' },
-    { type: 'circle', size: 60, color: 'rgba(236, 72, 153, 0.2)' },
-    { type: 'square', size: 90, color: 'rgba(139, 92, 246, 0.2)' },
-  ];
-
-  return (
-    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      {shapes.map((shape, index) => (
-        <motion.div
-          key={index}
-          className="absolute"
-          style={{
-            width: shape.size,
-            height: shape.size,
-            borderRadius: shape.type === 'circle' ? '50%' : shape.type === 'triangle' ? '0' : '10%',
-            backgroundColor: shape.color,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            x: [0, Math.random() * 100 - 50, 0],
-            y: [0, Math.random() * 100 - 50, 0],
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 20 + Math.random() * 10,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-      ))}
-    </div>
-  );
-};
-
 export default function StudentHomework() {
   const [homeworkList, setHomeworkList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -161,17 +122,23 @@ export default function StudentHomework() {
   const currentHomework = filteredHomework.slice(startIndex, endIndex);
 
   const categoryColors = {
-    1: "bg-red-500",
-    2: "bg-green-500",
-    3: "bg-blue-500",
-    4: "bg-yellow-500",
-    5: "bg-purple-500",
-    6: "bg-pink-500",
-    7: "bg-indigo-500",
-    8: "bg-teal-500",
-    9: "bg-orange-500",
-    10: "bg-cyan-500",
-    11: "bg-lime-500",
+    1: "bg-red-600",
+    2: "bg-orange-500",
+    3: "bg-yellow-500",
+    4: "bg-green-600",
+    5: "bg-teal-600",
+    6: "bg-blue-600",
+    7: "bg-indigo-700",
+    8: "bg-purple-600",
+    9: "bg-pink-400",
+    10: "bg-cyan-600",
+    11: "bg-lime-600",
+    12: "bg-amber-600",
+    13: "bg-rose-600",
+    14: "bg-emerald-600",
+    15: "bg-fuchsia-600"
+
+    
   };
 
   return (
@@ -181,7 +148,6 @@ export default function StudentHomework() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <BackgroundShapes />
 
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
         <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">

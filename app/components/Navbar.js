@@ -115,11 +115,11 @@ export default function Navbar() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10"
+                      className="absolute right-0 mt-2 w-48 bg-blue-50 border border-blue-500 rounded-md shadow-xl py-1 z-10"
                     >
                       <button
                         onClick={handleLogout}
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className="block w-full text-left px-4 py-2 text-sm border  text-blue-700 bg-blue-100 hover:bg-blue-600 hover:text-white -my-1 rounded-md"
                       >
                         Logout
                       </button>
