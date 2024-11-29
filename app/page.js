@@ -634,10 +634,12 @@ export default function Home() {
       {/* Footer */}
       
       <footer className="relative text-white">
-        <div className="mt-6 pt-32 pb-8 px-6 border-none bg-gradient-to-t from-[#0071f39a]">
+        <div className="mt-6 pt-32 pb-8 px-6 border-none bg-gradient-to-t from-blue-500">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-3xl font-bold text-blue-600">Wajibati</h3>
+            <Link href="/#home-page">
+              <img src="/img/logoWhite.png" alt="" className="h-8"/>
+            </Link>
               <p className="text-xl text-gray-200">apprentissage simplifié</p>
             </div>
             
