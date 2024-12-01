@@ -20,7 +20,7 @@ export default function TeacherDashboard() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [homeworkToDelete, setHomeworkToDelete] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(8);
+  const [itemsPerPage] = useState(10);
 
   useEffect(() => {
     const userName = document.cookie.match("(^|;)\\s*name\\s*=\\s*([^;]+)")?.pop() || "";

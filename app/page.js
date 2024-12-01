@@ -77,7 +77,7 @@ const ImageStack = ({ images }) => {
   }, [images.length, currentIndex]);
 
   return (
-    <div className="relative w-full h-96">
+    <div className="relative  h-[600px]">
       <AnimatePresence>
         {images.map((src, index) => (
           <motion.div
@@ -102,7 +102,7 @@ const ImageStack = ({ images }) => {
                 alt={`App Screenshot ${index + 1}`}
                 layout="fill"
                 objectFit="cover"
-                className="rounded-xl"
+                className="w-auto "
               />
           </motion.div>
         ))}
@@ -231,11 +231,7 @@ export default function Home() {
   }, [controls]);
 
   const images = [
-    '/img/a.png',
-    '/img/b.png',
-    '/img/c.png',
-    '/img/d.png',
-    '/img/e.png',
+    '/img/a.png'
   ];
 
   return (
