@@ -232,10 +232,6 @@ export default function Home() {
 
   const images = [
     '/img/a.png',
-    '/img/b.png',
-    '/img/c.png',
-    '/img/d.png',
-    '/img/e.png',
   ];
 
   return (
