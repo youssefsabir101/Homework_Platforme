@@ -61,55 +61,6 @@ const ImageComponent = ({ src, alt, className, style, initial, animate, transiti
 
 
 /* about section ======================================================================== */
-const getRandomRotation = () => Math.random() < 0.5 ? 5 : -5;
-
-const ImageStack = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const rotationsRef = useRef(images.map(() => getRandomRotation()));
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      rotationsRef.current[currentIndex] = getRandomRotation();
-    }, 4000); // Change image every 3 seconds
-
-    return () => clearInterval(timer);
-  }, [images.length, currentIndex]);
-
-  return (
-    <div className="relative  h-[600px]">
-      <AnimatePresence>
-        {images.map((src, index) => (
-          <motion.div
-            key={src}
-            className="absolute inset-0"
-            initial={{ 
-              x:-500,
-              rotate: 35,
-              opacity:0
-            }}
-            animate={{
-              x:0,
-              opacity:1,
-              rotate: index === currentIndex ? 0 : rotationsRef.current[index],
-              zIndex: index === currentIndex ? images.length : images.length - index,
-            }} 
-            transition={{ duration: 0.5 }}
-          >
-            
-              <Image
-                src={src}
-                alt={`App Screenshot ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
-                className="w-auto "
-              />
-          </motion.div>
-        ))}
-      </AnimatePresence>
-    </div>
-  );
-};
 
 const FeatureItem = ({ icon: Icon, title, description }) => {
   return (
@@ -230,9 +181,6 @@ export default function Home() {
     controls.start({ opacity: 1, y: 0 });
   }, [controls]);
 
-  const images = [
-    '/img/a.png',
-  ];
 
   return (
     <div className="w-full font-sans text-gray-900 bg-gradient-to-b from-blue-100 to-white overflow-hidden">
@@ -431,7 +379,7 @@ export default function Home() {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg"
+                  className="absolute top-0 left-0 w-full h-full rounded-md shadow-lg"
                 ></iframe>
               </div>
             </motion.div>
@@ -459,7 +407,17 @@ export default function Home() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <ImageStack images={images} />
+              <div className="relative  h-[600px]">
+                <AnimatePresence>
+                  <Image
+                    src={'/img/a.png'}
+                    alt={`App Screenshot `}
+                    layout="fill"
+                    objectFit="cover"
+                    className="w-auto  boreder border-blue-800"
+                  />
+                </AnimatePresence>
+              </div>
             </motion.div>
             <motion.div
               className="w-full lg:w-1/2"
