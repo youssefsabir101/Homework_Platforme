@@ -299,11 +299,11 @@ export default function HomeworkDetail() {
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
         <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">
           <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
-            <FaHome className="mr-1 text-blue-500" /> Home
+            <FaHome className="mr-1 text-blue-500" /> Accueil
           </motion.a>
           <span>/</span>
           <motion.a whileHover={{ scale: 1.05 }} href="/student/homework" className="flex items-center hover:underline">
-            <FaBook className="mr-1 text-blue-500" /> Homeworks
+            <FaBook className="mr-1 text-blue-500" /> Devoirs
           </motion.a>
           <span>/</span>
           <span className="font-semibold text-blue-500">{homework?.title}</span>
@@ -327,18 +327,18 @@ export default function HomeworkDetail() {
             <div className="flex flex-wrap gap-4 text-gray-600">
             <div className="flex items-center">
               <FaCalendarAlt className="mr-2 text-blue-500" />
-              Due Date: {new Date(homework.dueDate).toLocaleDateString()}
+                Date Limite : {new Date(homework.dueDate).toLocaleDateString()}
               </div>
               {homework.category && (
                 <div className="flex items-center">
                   <FaBook className="mr-2 text-blue-500" />
-                  Category: {homework.category.name}
+                    Matière : {homework.category.name}
                 </div>
               )}
               {homework.teacher && (
                 <div className="flex items-center">
                   <FaUser className="mr-2 text-blue-500" />
-                  Created by: {homework.teacher.name}
+                  Créé par : {homework.teacher.name}
                 </div>
               )}
             </div>
@@ -349,7 +349,7 @@ export default function HomeworkDetail() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              <h3 className="text-xl font-semibold mb-2">Attached File</h3>
+              <h3 className="text-xl font-semibold mb-2">Pièce jointe</h3>
               {homework.fileUrl ? (
                 <div className="bg-white p-4 rounded-lg">
                   <div className="flex items-center mb-4 overflow-hidden">
@@ -364,7 +364,7 @@ export default function HomeworkDetail() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <FaEye className="mr-2" />
-                      View File
+                      Voir le fichier
                     </motion.button>
                     <motion.a
                       href={homework.fileUrl}
@@ -374,12 +374,12 @@ export default function HomeworkDetail() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <FaFileAlt className="mr-2" />
-                      Download File
+                      Télécharger le fichier
                     </motion.a>
                   </div>
                 </div>
               ) : (
-                <p className="text-gray-500 italic">No file attached to this homework.</p>
+                <p className="text-gray-500 italic">Aucune Pièce n’est jointe à ce devoir.</p>
               )}
             </motion.div>
           </motion.div>
@@ -395,10 +395,10 @@ export default function HomeworkDetail() {
               alignSelf: 'flex-start'
             }}
           >
-            <h2 className="text-2xl font-bold mb-6">Submit Your Answer</h2>
+            <h2 className="text-2xl font-bold mb-6">soumettre votre réponse</h2>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
               <div className="mb-4">
-                <label htmlFor="title" className="block text-gray-700 mb-2">Exercise/Series Title</label>
+                <label htmlFor="title" className="block text-gray-700 mb-2">Titre de l’exercice/série</label>
                 <input
                   type="text"
                   id="title"
@@ -406,23 +406,23 @@ export default function HomeworkDetail() {
                   value={submission.title}
                   onChange={handleInputChange}
                   className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Write your Exercise/Series Title"
+                  placeholder="titre de votre exercice ou série"
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="answer" className="block text-gray-700 mb-2">Your Answer</label>
+                <label htmlFor="answer" className="block text-gray-700 mb-2">Votre réponse</label>
                 <textarea
                   id="answer"
                   name="answer"
                   value={submission.answer}
                   onChange={handleInputChange}
                   className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Write your answer here..."
+                  placeholder="votre réponse ici..."
                   rows="6"
                 />
               </div>
               <div className="mb-6">
-                <label htmlFor="file-upload" className="block text-gray-700 mb-2">Upload an Image or PDF (optional)</label>
+                <label htmlFor="file-upload" className="block text-gray-700 mb-2">Ajouter une image ou PDF (facultatif)</label>
                 <div className="flex items-center justify-center w-full">
                   <label htmlFor="file-upload" className="flex flex-col items-center justify-center w-full h-32 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-blue-50 hover:bg-blue-100 transition-colors">
                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -456,7 +456,7 @@ export default function HomeworkDetail() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
-                  Submission  successful!
+                  Soumission réussie!
                 </motion.p>
               )}
               <motion.button
@@ -466,7 +466,7 @@ export default function HomeworkDetail() {
                 whileTap={{ scale: 0.95 }}
               >
                 <FaUpload className="mr-2" />
-                Submit
+                Envoyer
               </motion.button>
             </form>
           </motion.div>

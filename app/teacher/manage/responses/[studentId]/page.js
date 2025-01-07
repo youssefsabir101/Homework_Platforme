@@ -222,14 +222,14 @@ export default function ViewStudentSubmission() {
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
         <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">
           <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
-            <FaHome className="mr-1 text-blue-500" /> Home
+            <FaHome className="mr-1 text-blue-500" /> Acceuil
           </motion.a>
           <span>/</span>
           <motion.a whileHover={{ scale: 1.05 }} href="/teacher/dashboard" className="flex items-center hover:underline">
             <FaChalkboardTeacher className="mr-1 text-blue-500" /> Dashboard
           </motion.a>
           <span>/</span>
-          <span className="font-semibold text-blue-500">View Response: {submission.studentName}</span>
+          <span className="font-semibold text-blue-500">Voir la réponse de : {submission.studentName}</span>
         </div>
       </nav>
 
@@ -251,35 +251,35 @@ export default function ViewStudentSubmission() {
           >
             <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
             <h1 className="text-2xl font-bold text-blue-500">
-            Student Submission
+            Les réponses d'étudiant
             </h1>
           </motion.h1>
           <div className="space-y-6">
             <motion.div variants={itemVariants} className="flex items-start">
               <FaUserGraduate className="text-blue-500 mr-2 mt-1" />
               <div>
-                <label className="block text-sm font-medium text-gray-700">Student Name:</label>
+                <label className="block text-sm font-medium text-gray-700">Nom d'étudiant:</label>
                 <p className="text-lg">{submission.studentName}</p>
               </div>
             </motion.div>
             <motion.div variants={itemVariants} className="flex items-start">
               <FaFileAlt className="text-blue-500 mr-2 mt-1" />
               <div>
-                <label className="block text-sm font-medium text-gray-700">Homework Title:</label>
+                <label className="block text-sm font-medium text-gray-700">Titre de devoirs:</label>
                 <p className="text-lg">{submission.homeworkTitle}</p>
               </div>
             </motion.div>
             <motion.div variants={itemVariants} className="flex items-center">
               <FaCalendarAlt className="text-blue-500 mr-2" />
               <div>
-                <label className="block text-sm font-medium text-gray-700">Submitted At:</label>
+                <label className="block text-sm font-medium text-gray-700">Envoyé à :</label>
                 <p className="text-lg">{new Date(submission.submittedAt).toLocaleString()}</p>
               </div>
             </motion.div>
             <motion.div variants={itemVariants} className="flex items-start">
               <FaFileAlt className="text-blue-500 mr-2 mt-1" />
               <div>
-                <label className="block text-sm font-medium text-gray-700">Answer :</label>
+                <label className="block text-sm font-medium text-gray-700">Contenu de la réponse :</label>
                 <p className="text-lg">{submission.answareText || "No Answer Provided"}</p>
               </div>
             </motion.div>
@@ -287,7 +287,7 @@ export default function ViewStudentSubmission() {
               <motion.div variants={itemVariants} className="flex items-start">
                 <FaFileAlt className="text-blue-500 mr-2 mt-1" />
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Attached File:</label>
+                  <label className="block text-sm font-medium text-gray-700">Fichier joint :</label>
                   <p className="text-lg mb-2">{submission.formattedFileName}</p>
                   <div className="flex space-x-4 -ml-6">
                     <motion.button
@@ -296,7 +296,7 @@ export default function ViewStudentSubmission() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <FaEye className="mr-2" /> View
+                      <FaEye className="mr-2" /> Voir
                     </motion.button>
                     <motion.button
                       onClick={handleDownload}
@@ -304,7 +304,7 @@ export default function ViewStudentSubmission() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <FaDownload className="mr-2" /> Download
+                      <FaDownload className="mr-2" /> Télécharger
                     </motion.button>
                   </div>
                 </div>
@@ -321,7 +321,7 @@ export default function ViewStudentSubmission() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaChalkboardTeacher className="mr-2" /> Back
+              <FaChalkboardTeacher className="mr-2" /> Retour
             </motion.button>
           </motion.div>
         </motion.div>

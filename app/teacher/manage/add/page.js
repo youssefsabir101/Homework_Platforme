@@ -144,14 +144,14 @@ export default function AddHomework() {
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
         <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">
           <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
-            <FaHome className="mr-1 text-blue-500" /> Home
+            <FaHome className="mr-1 text-blue-500" /> Acceuil
           </motion.a>
           <span>/</span>
           <motion.a whileHover={{ scale: 1.05 }} href="/teacher/dashboard" className="flex items-center hover:underline">
             <FaChalkboardTeacher className="mr-1 text-blue-500" /> Dashboard
           </motion.a>
           <span>/</span>
-          <span className="font-semibold text-blue-500">Add Homework</span>
+          <span className="font-semibold text-blue-500">Ajouter un devoir</span>
         </div>
       </nav>
 
@@ -177,11 +177,11 @@ export default function AddHomework() {
           >
             <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
             <h1 className="text-2xl font-bold text-blue-500">
-            Add New Homework
+              Ajouter un devoir
             </h1>
           </motion.h1>
           <motion.div className="mb-4" variants={itemVariants}>
-            <label htmlFor="title" className="block text-gray-700 mb-2 font-semibold">Homework Title</label>
+            <label htmlFor="title" className="block text-gray-700 mb-2 font-semibold">Titre de devoirs</label>
             <input
               type="text"
               id="title"
@@ -209,7 +209,7 @@ export default function AddHomework() {
           </motion.div>
 
           <motion.div className="mb-4" variants={itemVariants}>
-            <label htmlFor="dueDate" className="block text-gray-700 mb-2 font-semibold">Due Date</label>
+            <label htmlFor="dueDate" className="block text-gray-700 mb-2 font-semibold">Date Limite</label>
             <input
               type="date"
               id="dueDate"
@@ -222,7 +222,7 @@ export default function AddHomework() {
           </motion.div>
 
           <motion.div className="mb-4" variants={itemVariants}>
-            <label htmlFor="categoryId" className="block text-gray-700 mb-2 font-semibold">Category</label>
+            <label htmlFor="categoryId" className="block text-gray-700 mb-2 font-semibold">Matière</label>
             <select
               id="categoryId"
               name="categoryId"
@@ -231,7 +231,7 @@ export default function AddHomework() {
               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             >
-              <option value="" disabled>Select a category</option>
+              <option value="" disabled>sélectionnez une matière</option>
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
                   {category.name}
@@ -241,7 +241,7 @@ export default function AddHomework() {
           </motion.div>
 
           <motion.div className="mb-6" variants={itemVariants}>
-            <label htmlFor="file-upload" className="block text-gray-700 mb-2 font-semibold">Upload File (optional)</label>
+            <label htmlFor="file-upload" className="block text-gray-700 mb-2 font-semibold">Ajouter des pièces (facultatif)</label>
             <div className="flex items-center justify-center w-full">
               <label htmlFor="file-upload" className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -296,7 +296,7 @@ export default function AddHomework() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <FaPlus className="mr-2" /> Add Homework
+            <FaPlus className="mr-2" /> Ajouter
           </motion.button>
         </motion.form>
       </motion.div>

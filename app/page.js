@@ -36,8 +36,8 @@ const SectionTitle = ({ children }) => (
       animate={{ x: 0, rotateY:0, opacity: 1 }}
       transition={{duration:0.8, delay: 0.5 }}
     >
-      <div className="w-2 h-8 mr-3 mb-12 md:w-3 md:h-12 bg-blue-500 md:mr-6  md:mb-10 flex-shrink-0"></div>
-      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-12 text-blue-500">
+      <div className="w-2 h-8 mr-3 mb-12 md:w-2 md:h-10 bg-blue-500 md:mr-6  md:mb-10 flex-shrink-0"></div>
+      <h1 className="text-3xl md:text-3xl lg:text-4xl font-bold mb-12 text-blue-500">
       {children}
       </h1>
     </motion.h1>
@@ -86,74 +86,74 @@ const FeatureItem = ({ icon: Icon, title, description }) => {
 const features = [
   {
     icon: FaClipboardList,
-    title: "Homework Management",
-    description: "Effortlessly manage homework assignments for your students.",
+    title: "Gestion des devoirs",
+    description: "Gérez sans effort les devoirs de vos élèves.",
     bgColor: "bg-blue-100",
     iconColor: "text-blue-500",
     benefits: [
-      "Create new homework assignments",
-      "Organize assignments by subject or class",
-      "Set due dates and priorities"
+      "Créer de nouveaux devoirs à faire",
+      "Organiser les travaux par sujet ou classe",
+      "Fixer les dates d’échéance et les priorités"
     ]
   },
   {
     icon: FaEdit,
-    title: "Edit Assignments",
-    description: "Easily modify existing homework assignments as needed.",
+    title: "Modifier les affectations",
+    description: "Modifier facilement les devoirs existants au besoin.",
     bgColor: "bg-blue-100",
     iconColor: "text-blue-600",
     benefits: [
-      "Update assignment details",
-      "Adjust due dates",
-      "Modify instructions or requirements"
+      "Mettre à jour les détails de l’affectation",
+      "Ajuster les dates d’échéance",
+      "Modifier les instructions ou exigences"
     ]
   },
   {
     icon: FaTrash,
-    title: "Delete Homework",
-    description: "Remove outdated or cancelled homework assignments.",
+    title: "Supprimer les devoirs",
+    description: "Supprimer les devoirs périmés ou annulés.",
     bgColor: "bg-blue-100",
     iconColor: "text-blue-600",
     benefits: [
-      "Quickly delete unnecessary assignments",
-      "Bulk delete options for efficiency",
-      "Confirmation prompts to prevent accidental deletion"
+      "Supprimer rapidement les tâches inutiles",
+      "Options de suppression en bloc pour plus d’efficacité",
+      "Invite de confirmation pour éviter la suppression accidentelle"
     ]
   },
   {
     icon: FaEye,
-    title: "View Submissions",
-    description: "Review and manage student homework submissions.",
+    title: "Voir les soumissions",
+    description: "Examiner et gérer les devoirs soumis par les élèves.",
     bgColor: "bg-blue-100",
     iconColor: "text-blue-600",
     benefits: [
-      "Access all student submissions in one place",
-      "Track submission status and timestamps",
-      "Provide feedback on submitted work"
+      "Accédez à toutes les soumissions des étudiants en un seul endroit",
+      "Suivre l’état de la soumission et les horodatages",
+      "Fournir des commentaires sur les travaux soumis"
     ]
   },
   {
     icon: FaFilter,
-    title: "Filter Homework",
-    description: "Students can easily find relevant assignments.",
+    title: "Filtrer les devoirs",
+    description: "Les étudiants peuvent facilement trouver des devoirs pertinents.",
     bgColor: "bg-blue-100",
     iconColor: "text-blue-600",
     benefits: [
-      "Filter homework by subject or category",
-      "Sort assignments by due date",
-      "Quick search functionality"
+      "Filtrer les devoirs par sujet ou catégorie",
+      "Trier les affectations par date d’échéance",
+      "Fonctionnalité de recherche rapide"
     ]
   },
   {
     icon: FaPaperPlane,
-    title: "Submit Homework",
-    description: "Students can effortlessly submit their completed assignments.",
+    title: "soumettre leurs devoirs",
+    description: "Les étudiants peuvent soumettre leurs devoirs complétés sans effort.",
     bgColor: "bg-blue-100",
     iconColor: "text-blue-600",
     benefits: [
-      "Easy-to-use submission interface",
-      "Support for multiple file formats",
-      "Confirmation receipts for successful submissions"
+      "Interface de soumission facile à utiliser",
+      "Prise en charge de plusieurs formats de fichiers",
+      "Confirmation des soumissions réussies"
     ]
   }
 ];
@@ -240,7 +240,7 @@ export default function Home() {
                     className="flex justify-center items-center py-3 px-8 sm:px-10 text-base sm:text-lg font-bold tracking-wide leading-7 text-white bg-blue-600 rounded-md hover:bg-blue-800 w-full sm:w-auto transition duration-400 ease-in-out"
                     >
                     <button className="" >
-                      Sign In
+                      S'inscrire
                     </button>
                   </Link>
                 </motion.div>
@@ -254,7 +254,7 @@ export default function Home() {
                   <Link href="#how-to-use">
                     <span className="flex items-center py-0 px-4 text-sm hover:bg-blue-600 hover:text-white rounded-md group transition duration-500 ease-in-out">
                       <FaPlay className="text-xl sm:text-2xl drop-shadow-lg mr-2 text-blue-600 group-hover:text-white" />
-                      <span className="font-bold tracking-wide text-blue-600 p-4 group-hover:text-white">Learn how to use it</span>
+                      <span className="font-bold tracking-wide text-blue-600 p-4 group-hover:text-white">Apprenez à l’utiliser</span>
                     </span>
                   </Link>
                 </motion.button>
@@ -287,7 +287,7 @@ export default function Home() {
         animate={controls}
       >
         <div className="max-w-7xl mx-auto">
-          <SectionTitle>How to Use Our App</SectionTitle>
+          <SectionTitle>Comment utiliser Wajibati</SectionTitle>
           <div className="flex flex-col md:flex-row items-stretch gap-12">
             <motion.div
               className="w-full md:w-1/2 flex flex-col justify-center"
@@ -295,9 +295,9 @@ export default function Home() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="text-3xl font-bold mb-6">Get Started in Minutes</h3>
+              <h3 className="text-3xl font-bold mb-6">commencer en quelques minutes</h3>
               <p className="text-xl text-gray-700 mb-6">
-                Our homework platform is built for simplicity and efficiency. Follow these simple steps:
+                Notre plateforme de travail à domicile est conçue pour être simple et efficace. Suivez ces étapes simples :
               </p>
 
               <div className="relative pl-8">
@@ -316,10 +316,10 @@ export default function Home() {
                     <div className="bg-blue-500 rounded-full p-2 mr-4">
                       <FaSignInAlt className="text-white text-xl" />
                     </div>
-                    <h4 className="text-2xl font-semibold">Login</h4>
+                    <h4 className="text-2xl font-semibold">connexion</h4>
                   </div>
                   <p className="text-gray-700 ml-12">
-                    Click the "Login" button to access the login page.
+                    Cliquez sur le bouton "Connexion" pour accéder à la page de connexion.
                   </p>
                 </motion.div>
 
@@ -333,14 +333,14 @@ export default function Home() {
                     <div className="bg-blue-500 rounded-full p-2 mr-4">
                       <FaKey className="text-white text-xl" />
                     </div>
-                    <h4 className="text-2xl font-semibold">Enter Credentials</h4>
+                    <h4 className="text-2xl font-semibold">Entrer les identifiants</h4>
                   </div>
                   <ul className="text-gray-700 ml-12 space-y-2">
                     <li>
-                      <span className="font-semibold">Students:</span> Enter your Massar Code and Password
+                      <span className="font-semibold">Étudiants:</span> Entrez votre code de Massar et mot de passe
                     </li>
                     <li>
-                      <span className="font-semibold">Teachers:</span> Enter your Email and Password
+                      <span className="font-semibold">Enseignants:</span> Entrez votre adresse e-mail et mot de passe
                     </li>
                   </ul>
                 </motion.div>
@@ -354,14 +354,14 @@ export default function Home() {
                     <div className="bg-blue-500 rounded-full p-2 mr-4">
                       <FaTachometerAlt className="text-white text-xl" />
                     </div>
-                    <h4 className="text-2xl font-semibold">Access Dashboard</h4>
+                    <h4 className="text-2xl font-semibold">Accès au Dashboard</h4>
                   </div>
                   <ul className="text-gray-700 ml-12 space-y-2">
                     <li>
-                      <span className="font-semibold">Students:</span> View your Homework Page
+                      <span className="font-semibold">Étudiants:</span> Voir votre page de devoirs
                     </li>
                     <li>
-                      <span className="font-semibold">Teachers:</span> Manage homework and view submissions
+                      <span className="font-semibold">Enseignants:</span> Gérer les devoirs et consulter les soumissions
                     </li>
                   </ul>
                 </motion.div>
@@ -399,7 +399,7 @@ export default function Home() {
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-7xl mx-auto">
-        <SectionTitle>About the App</SectionTitle>
+        <SectionTitle>À propos de l'application</SectionTitle>
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <motion.div
               className="w-full lg:w-1/2"
@@ -428,28 +428,28 @@ export default function Home() {
               <div className="space-y-8">
                 <FeatureItem
                   icon={FaGraduationCap}
-                  title="Empowering Students"
-                  description="Our platform helps students stay organized and on top of their assignments, promoting academic success."
+                  title="Habiliter les étudiants"
+                  description="Wajibati aide les étudiants à rester organisés et au top de leurs devoirs, favorisant ainsi la réussite scolaire."
                 />
                 <FeatureItem
                   icon={FaChalkboardTeacher}
-                  title="Supporting Teachers"
-                  description="We provide tools for teachers to efficiently manage coursework and track student progress."
+                  title="Soutenir les enseignants"
+                  description="wajibati fournissent aux enseignants des outils pour gérer efficacement les cours et suivre les progrès des élèves."
                 />
                 <FeatureItem
                   icon={FaLaptop}
-                  title="Seamless Technology"
-                  description="Our user-friendly interface ensures a smooth experience for both students and educators."
+                  title="Technologie seamless"
+                  description="Notre interface conviviale assure une expérience fluide pour les étudiants et les enseignants."
                 />
                 <FeatureItem
                   icon={FaChartLine}
-                  title="Performance Tracking"
-                  description="Easily monitor academic progress and identify areas for improvement."
+                  title="Suivre les résultats"
+                  description="Suivre facilement les progrès scolaires et identifier les domaines d’amélioration."
                 />
                 <FeatureItem
                   icon={FaUsers}
-                  title="Collaborative Learning"
-                  description="Foster communication between students and teachers, enhancing the learning experience."
+                  title="Apprentissage collaboratif"
+                  description="Favoriser la communication entre les élèves et les enseignants, en améliorant l’expérience d’apprentissage."
                 />
               </div>
             </motion.div>
@@ -495,7 +495,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="relative z-10 py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle>Get in Touch</SectionTitle>
+          <SectionTitle>Prendre contact</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div 
               className="bg-white bg-opacity-70 p-6 rounded-lg shadow-md"
@@ -503,11 +503,11 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-2xl font-semibold mb-2">Contact Us</h3>
-              <p className="text-gray-600 mb-6">We'd love to hear from you</p>
+              <h3 className="text-2xl font-semibold mb-2">Contactez-nous</h3>
+              <p className="text-gray-600 mb-6">Nous aimerions vous entendre</p>
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nom</label>
                   <input 
                     type="text" 
                     id="name" 
@@ -542,7 +542,7 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Send Message
+                  Envoyer message
                 </motion.button>
               </form>
             </motion.div>
@@ -552,31 +552,31 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-2xl font-semibold mb-2">How to Reach Us</h3>
-              <p className="text-gray-600 mb-6">We're here to help and improve</p>
+              <h3 className="text-2xl font-semibold mb-2">Comment Nous Joindre</h3>
+              <p className="text-gray-600 mb-6">Nous sommes là pour vous aider et vous améliorer</p>
               <div className="space-y-4">
                 <p className="text-gray-700">
-                  Your feedback is invaluable to us. Whether you've encountered an issue, have a brilliant idea for a new feature, or simply want to share your thoughts, we're all ears. Here's how you can reach out:
+                Vos commentaires sont précieux pour nous. Que vous ayez rencontré un problème, une idée géniale pour une nouvelle fonctionnalité ou simplement envie de partager vos réflexions, nous sommes à l’écoute. Voici comment vous pouvez communiquer :
                 </p>
                 <div className="flex items-start space-x-2">
                   <FaExclamationTriangle className="text-blue-500 mt-1 flex-shrink-0" />
                   <div>
-                    <span className="font-semibold">Report an Issue:</span>
-                    <p className="text-gray-600">Use the form to describe any problems you've encountered. Be as detailed as possible to help us resolve it quickly.</p>
+                    <span className="font-semibold">Signaler un problème :</span>
+                    <p className="text-gray-600">Utilisez le formulaire pour décrire les problèmes que vous avez rencontrés. Soyez aussi détaillé que possible pour nous aider à résoudre rapidement le problème.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-2">
                   <FaLightbulb className="text-blue-500 mt-1 flex-shrink-0" />
                   <div>
-                    <span className="font-semibold">Suggest an Improvement:</span>
-                    <p className="text-gray-600">Have an idea that could make our app even better? We'd love to hear it! Share your suggestions through the contact form.</p>
+                    <span className="font-semibold">Suggérer une amélioration :</span>
+                    <p className="text-gray-600">Vous avez une idée qui pourrait améliorer notre application? Nous aimerions l’entendre! Partagez vos suggestions par le formulaire de contact.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-2">
                   <FaEnvelope className="text-blue-500 mt-1 flex-shrink-0" />
                   <div>
-                    <span className="font-semibold">General Inquiries:</span>
-                    <p className="text-gray-600">For any other questions or comments, don't hesitate to reach out. We value every piece of feedback from our users.</p>
+                    <span className="font-semibold">Renseignements généraux :</span>
+                    <p className="text-gray-600">Pour toute autre question ou commentaire, n’hésitez pas à communiquer avec nous. Nous apprécions chaque rétroaction de nos utilisateurs.</p>
                   </div>
                 </div>
               </div>

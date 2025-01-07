@@ -80,9 +80,9 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <Link href="/#how-to-use" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">How to Use</Link>
-              <Link href="/#about-app" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">About App</Link>
-              <Link href="/#features" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">Features</Link>
+              <Link href="/#how-to-use" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">utilisation</Link>
+              <Link href="/#about-app" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">À propos</Link>
+              <Link href="/#features" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">fonctionnalités</Link>
               <Link href="/#contact" className="font-semibold hover:text-blue-800 transit duration-500 ease-in-out">Contact</Link>
             </div>
           </div>
@@ -91,12 +91,12 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             {isLoggedIn && userRole === "teacher" && (
               <Link href="/teacher/dashboard">
-                <span className="hover:text-blue-400 cursor-pointer">Teacher Dashboard</span>
+                <span className="hover:text-blue-400 cursor-pointer">Dashboard</span>
               </Link>
             )}
             {isLoggedIn && userRole === "student" && (
               <Link href="/student/homework">
-                <span className="hover:text-blue-400 cursor-pointer font-semibold">Homework List</span>
+                <span className="hover:text-blue-400 cursor-pointer font-semibold">Liste des devoirs</span>
               </Link>
             )}
             {isLoggedIn ? (
@@ -106,7 +106,7 @@ export default function Navbar() {
                   className="flex items-center space-x-2 focus:outline-none"
                 >
                   <span className="font-semibold">{userName}</span>
-                  <span className="text-sm text-gray-600">({userRole})</span>
+                  {/* <span className="text-sm text-gray-600">({userRole})</span> */}
                   <ChevronDown size={16} />
                 </button>
                 <AnimatePresence>
@@ -121,7 +121,7 @@ export default function Navbar() {
                         onClick={handleLogout}
                         className="block w-full text-left px-4 py-2 text-sm border  text-blue-700 bg-blue-100 hover:bg-blue-600 hover:text-white -my-1 rounded-md"
                       >
-                        Logout
+                        déconnexion
                       </button>
                     </motion.div>
                   )}
@@ -130,7 +130,7 @@ export default function Navbar() {
             ) : (
               <Link href="/login">
                 <button className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-md text-white text-sm transition duration-200">
-                  Login
+                connexion
                 </button>
               </Link>
             )}
@@ -159,17 +159,17 @@ export default function Navbar() {
               <div className="flex flex-col space-y-2">
                 <Link href="/#how-to-use">
                   <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
-                    How to Use
+                    utilisation
                   </span>
                 </Link>
                 <Link href="/#about-app">
                   <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
-                    About App
+                    À propos
                   </span>
                 </Link>
                 <Link href="/#features">
                   <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
-                    Features
+                    fonctionnalités
                   </span>
                 </Link>
                 <Link href="/#contact">
@@ -181,14 +181,14 @@ export default function Navbar() {
                 {isLoggedIn && userRole === "teacher" && (
                   <Link href="/teacher/dashboard">
                     <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
-                      Teacher Dashboard
+                      Dashboard
                     </span>
                   </Link>
                 )}
                 {isLoggedIn && userRole === "student" && (
                   <Link href="/student/homework">
                     <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
-                      Homework List
+                      Liste des devoirs
                     </span>
                   </Link>
                 )}
@@ -201,13 +201,13 @@ export default function Navbar() {
                       onClick={handleLogout}
                       className="block w-full text-left py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md"
                     >
-                      Logout
+                      déconnexion
                     </button>
                   </>
                 ) : (
                   <Link href="/login">
                     <span className="block py-2 px-4 text-sm hover:bg-blue-500 hover:text-white rounded-md">
-                      Login
+                      connexion
                     </span>
                   </Link>
                 )}

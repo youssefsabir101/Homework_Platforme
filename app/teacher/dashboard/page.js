@@ -136,7 +136,7 @@ export default function TeacherDashboard() {
         <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
           <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-800">
             <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
-              <FaHome className="mr-1" /> Home
+              <FaHome className="mr-1" /> Acceuil
             </motion.a>
             <span>/</span>
             <motion.a whileHover={{ scale: 1.05 }} href="/teacher/dashboard" className="flex items-center hover:underline">
@@ -160,7 +160,7 @@ export default function TeacherDashboard() {
             >
               <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
               <h1 className="text-2xl font-bold text-blue-500">
-              Teacher Dashboard
+                Dashboard
               </h1>
             </motion.h1>
 
@@ -171,7 +171,7 @@ export default function TeacherDashboard() {
               <div className="relative w-full sm:w-64">
                 <input
                   type="text"
-                  placeholder="Search homework by title..."
+                  placeholder="Recherche par titre ..."
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -184,7 +184,7 @@ export default function TeacherDashboard() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FaPlus className="mr-2" /> Add Homework
+                <FaPlus className="mr-2" /> Ajouter devoirs
               </motion.button>
             </motion.div>
 
@@ -195,10 +195,10 @@ export default function TeacherDashboard() {
               <table className="w-full">
                 <thead>
                   <tr className="bg-gray-100">
-                    <th className="p-3 text-left">Title</th>
+                    <th className="p-3 text-left">Titre</th>
                     <th className="p-3 text-left">Description</th>
-                    <th className="p-3 text-left">Due Date</th>
-                    <th className="p-3 text-left">Category</th>
+                    <th className="p-3 text-left">Date</th>
+                    <th className="p-3 text-left">Matière</th>
                     <th className="p-3 text-left">Actions</th>
                   </tr>
                 </thead>

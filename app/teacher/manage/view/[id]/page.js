@@ -149,14 +149,14 @@ export default function ViewHomework() {
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
         <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">
           <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
-            <FaHome className="mr-1 text-blue-500" /> Home
+            <FaHome className="mr-1 text-blue-500" /> Acceuil
           </motion.a>
           <span>/</span>
           <motion.a whileHover={{ scale: 1.05 }} href="/teacher/dashboard" className="flex items-center hover:underline">
             <FaChalkboardTeacher className="mr-1 text-blue-500 " /> Dashboard
           </motion.a>
           <span>/</span>
-          <span className="font-semibold text-blue-500">View: {homework.title}</span>
+          <span className="font-semibold text-blue-500"> {homework.title}</span>
         </div>
       </nav>
 
@@ -178,36 +178,36 @@ export default function ViewHomework() {
           >
             <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
             <h1 className="text-2xl font-bold text-blue-500">
-            Homework Details
+            Détails de devoirs
             </h1>
           </motion.h1>
           <div className="space-y-6">
             <motion.div variants={itemVariants} className="flex items-center">
               <FaEye className="text-blue-500 mr-2" />
               <div>
-                <p className="block text-sm font-medium text-gray-700">Title : <span className="text-sm text-black">{homework.title}</span> </p>
+                <p className="block text-sm font-medium text-gray-700">Titre : <span className="text-sm text-black">{homework.title}</span> </p>
               </div>
             </motion.div>
             <motion.div variants={itemVariants} className="flex items-center">
               <FaFileAlt className="text-blue-500 mr-2 mt-1" />
               <div>
-                <p className="block text-sm font-medium text-gray-700">Content : <span className="text-sm text-black">{homework.description}</span> </p>
+                <p className="block text-sm font-medium text-gray-700">contenu : <span className="text-sm text-black">{homework.description}</span> </p>
               </div>
             </motion.div>
             <motion.div variants={itemVariants} className="flex items-center">
               <FaCalendarAlt className="text-blue-500 mr-2" />
               <div>
-                <p className="block text-sm font-medium text-gray-700">Due Date : <span className="text-sm text-black">{new Date(homework.dueDate).toLocaleDateString()}</span> </p>
+                <p className="block text-sm font-medium text-gray-700">Date Limite : <span className="text-sm text-black">{new Date(homework.dueDate).toLocaleDateString()}</span> </p>
               </div>
             </motion.div>
             <motion.div variants={itemVariants} className="flex items-center">
               <FaFolder className="text-blue-500 mr-2" />
               <div>
-                  <p className="block text-sm font-medium text-gray-700">Category : <span className="text-sm text-black">{homework.category?.name || "No Category"}</span> </p>
+                  <p className="block text-sm font-medium text-gray-700">Matière : <span className="text-sm text-black">{homework.category?.name || "No Category"}</span> </p>
               </div>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Attached File:</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Fichier joint :</label>
               {homework.fileUrl ? (
                 <div className="flex items-center p-4 bg-gray-100 rounded-lg">
                   {homework.fileUrl.match(/\.(jpeg|jpg|gif|png)$/) !== null ? (
@@ -233,25 +233,25 @@ export default function ViewHomework() {
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:underline"
                     >
-                      View File
+                      voir le fichier
                     </a>
                   </div>
                 </div>
               ) : (
-                <p className="text-gray-500 italic">No file attached</p>
+                <p className="text-gray-500 italic">Aucun fichier joint</p>
               )}
             </motion.div>
             <motion.div variants={itemVariants}>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Submissions:</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Réponses reçues</label>
               {homework.submissions.length > 0 ? (
                 <div className="overflow-x-auto">
                   <table className="min-w-full bg-white border border-gray-300 shadow-sm rounded-lg overflow-hidden">
                     <thead className="bg-gray-100">
                       <tr>
-                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student ID</th>
-                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Login Code</th>
-                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time of Response</th>
+                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">N° d’étudiant</th>
+                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Code Massar</th>
+                        <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Temps de réponse</th>
                         <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
                       </tr>
                     </thead>
@@ -276,7 +276,7 @@ export default function ViewHomework() {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                             >
-                              <FaUserGraduate className="mr-2" /> View
+                              <FaUserGraduate className="mr-2" /> Voir
                             </motion.button>
                           </td>
                         </motion.tr>
@@ -299,7 +299,7 @@ export default function ViewHomework() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaChalkboardTeacher className="mr-2" /> Back to Dashboard
+              <FaChalkboardTeacher className="mr-2" /> Retour
             </motion.button>
           </motion.div>
         </motion.div>

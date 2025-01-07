@@ -108,7 +108,7 @@ export default function LoginPage() {
         <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-100 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></motion.div>
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
-            <h1 className="text-2xl font-semibold">Login</h1>
+            <h1 className="text-2xl font-semibold">Connexion</h1>
             {error && <p className="text-red-500 text-center">{error}</p>}
 
             <form onSubmit={handleLogin} className="space-y-4">
@@ -122,8 +122,10 @@ export default function LoginPage() {
                         value="student"
                         checked={role === "student"}
                         onChange={() => setRole("student")}
+                        className="h-4 w-4"
                       />
-                      <label className="text-gray-600">Student</label>
+                      <label className="text-gray-600 pl-1">Étudiant
+                      </label>
                     </div>
                     <div>
                       <input
@@ -131,8 +133,9 @@ export default function LoginPage() {
                         value="teacher"
                         checked={role === "teacher"}
                         onChange={() => setRole("teacher")}
+                        className="h-4 w-4"
                       />
-                      <label className="text-gray-600">Teacher</label>
+                      <label className="text-gray-600 pl-1">Enseignant</label>
                     </div>
                   </div>
 
@@ -147,7 +150,7 @@ export default function LoginPage() {
                         onChange={(e) => setLoginCode(e.target.value)}
                       />
                       <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
-                        Code Massar
+                        Code de Massar
                       </label>
                     </div>
                   ) : (
@@ -175,14 +178,14 @@ export default function LoginPage() {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     <label className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
-                      Password
+                      Mot de passe
                     </label>
                   </div>
 
                   {/* Submit Button */}
                   <div className="relative">
                     <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded-md px-2 py-1">
-                      Login
+                      Connexion
                     </button>
                   </div>
                 </div>

@@ -173,14 +173,14 @@ export default function EditHomework() {
       <nav aria-label="breadcrumb" className="fixed top-16 w-full p-4 backdrop-blur-sm bg-white bg-opacity-70 z-30">
         <div className="container mx-auto flex items-center space-x-2 text-sm text-blue-500">
           <motion.a whileHover={{ scale: 1.05 }} href="/" className="flex items-center hover:underline">
-            <FaHome className="mr-1 text-blue-500" /> Home
+            <FaHome className="mr-1 text-blue-500" /> Acceuil
           </motion.a>
           <span>/</span>
           <motion.a whileHover={{ scale: 1.05 }} href="/teacher/dashboard" className="flex items-center hover:underline">
             <FaChalkboardTeacher className="mr-1 text-blue-500" /> Dashboard
           </motion.a>
           <span>/</span>
-          <span className="font-semibold text-blue-500">Edit: {homework.title}</span>
+          <span className="font-semibold text-blue-500">Modifier: {homework.title}</span>
         </div>
       </nav>
 
@@ -206,12 +206,12 @@ export default function EditHomework() {
           >
             <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
             <h1 className="text-2xl font-bold text-blue-500">
-            Edit Homework
+              Modifier devoirs
             </h1>
           </motion.h1>
 
           <motion.div className="mb-4" variants={itemVariants}>
-            <label htmlFor="title" className="block text-gray-700 mb-2 font-semibold">Homework Title</label>
+            <label htmlFor="title" className="block text-gray-700 mb-2 font-semibold">Titre de devoirs</label>
             <input
               type="text"
               id="title"
@@ -237,7 +237,7 @@ export default function EditHomework() {
           </motion.div>
 
           <motion.div className="mb-4" variants={itemVariants}>
-            <label htmlFor="dueDate" className="block text-gray-700 mb-2 font-semibold">Due Date</label>
+            <label htmlFor="dueDate" className="block text-gray-700 mb-2 font-semibold">Date Limite</label>
             <input
               type="date"
               id="dueDate"
@@ -250,7 +250,7 @@ export default function EditHomework() {
           </motion.div>
 
           <motion.div className="mb-4" variants={itemVariants}>
-            <label htmlFor="categoryId" className="block text-gray-700 mb-2 font-semibold">Category</label>
+            <label htmlFor="categoryId" className="block text-gray-700 mb-2 font-semibold">Matière</label>
             <select
               id="categoryId"
               name="categoryId"
@@ -259,7 +259,7 @@ export default function EditHomework() {
               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             >
-              <option value="" disabled>Select a category</option>
+              <option value="" disabled>sélectionnez une matière</option>
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
                   {category.name}
@@ -269,7 +269,7 @@ export default function EditHomework() {
           </motion.div>
 
           <motion.div className="mb-6" variants={itemVariants}>
-            <label htmlFor="file-upload" className="block text-gray-700 mb-2 font-semibold">Current File</label>
+            <label htmlFor="file-upload" className="block text-gray-700 mb-2 font-semibold">fichier actuel</label>
             {homework.fileUrl && (
               <div className="mb-4 p-4 border border-gray-300 rounded-lg">
                 {homework.fileUrl.match(/\.(jpeg|jpg|gif|png)$/) !== null ? (
@@ -308,7 +308,7 @@ export default function EditHomework() {
               />
             </label>
             {homework.file && (
-              <p className="mt-2 text-sm text-gray-500">Selected file: {homework.file.name}</p>
+              <p className="mt-2 text-sm text-gray-500">fichier sélectionné: {homework.file.name}</p>
             )}
           </motion.div>
 
@@ -338,7 +338,7 @@ export default function EditHomework() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <FaEdit className="mr-2" /> Update Homework
+            <FaEdit className="mr-2" /> Mettre à jour
           </motion.button>
         </motion.form>
       </motion.div>
