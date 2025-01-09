@@ -26,3 +26,4 @@ dist/
 # Ignore Tailwind/PostCSS config files if they don't need to be tracked
 postcss.config.mjs
 tailwind.config.js
+.vercel

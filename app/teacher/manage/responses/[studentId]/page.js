@@ -251,14 +251,14 @@ export default function ViewStudentSubmission() {
           >
             <div className="w-2 h-6 bg-blue-500 mr-3 flex-shrink-0"></div>
             <h1 className="text-2xl font-bold text-blue-500">
-            Les réponses d'étudiant
+            Les réponses d&apos;étudiant
             </h1>
           </motion.h1>
           <div className="space-y-6">
             <motion.div variants={itemVariants} className="flex items-start">
               <FaUserGraduate className="text-blue-500 mr-2 mt-1" />
               <div>
-                <label className="block text-sm font-medium text-gray-700">Nom d'étudiant:</label>
+                <label className="block text-sm font-medium text-gray-700">Nom d&apos;étudiant:</label>
                 <p className="text-lg">{submission.studentName}</p>
               </div>
             </motion.div>

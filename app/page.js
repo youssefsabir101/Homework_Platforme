@@ -212,7 +212,7 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  L<span className="text-blue-600">'</span>apprentissage{" "}
+                  L<span className="text-blue-600">&apos;</span>apprentissage{" "}
                 </motion.span>
                 <motion.span
                   className="inline-block"
@@ -229,7 +229,7 @@ export default function Home() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                Simplifiez l'étude à domicile pour tous
+                Simplifiez l&apos;étude à domicile pour tous
               </motion.p>
               <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center space-y-4 sm:space-y-0 sm:space-x-6">
                 <motion.div
@@ -240,7 +240,7 @@ export default function Home() {
                     className="flex justify-center items-center py-3 px-8 sm:px-10 text-base sm:text-lg font-bold tracking-wide leading-7 text-white bg-blue-600 rounded-md hover:bg-blue-800 w-full sm:w-auto transition duration-400 ease-in-out"
                     >
                     <button className="" >
-                      S'inscrire
+                      S&apos;inscrire
                     </button>
                   </Link>
                 </motion.div>
@@ -319,7 +319,7 @@ export default function Home() {
                     <h4 className="text-2xl font-semibold">connexion</h4>
                   </div>
                   <p className="text-gray-700 ml-12">
-                    Cliquez sur le bouton "Connexion" pour accéder à la page de connexion.
+                    Cliquez sur le bouton &quot;Connexion&quot; pour accéder à la page de connexion.
                   </p>
                 </motion.div>
 
@@ -399,7 +399,7 @@ export default function Home() {
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-7xl mx-auto">
-        <SectionTitle>À propos de l'application</SectionTitle>
+        <SectionTitle>À propos de l&apos;application</SectionTitle>
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <motion.div
               className="w-full lg:w-1/2"
