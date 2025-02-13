@@ -2,7 +2,7 @@
 
  <p align="center">
   <a href="#" target="_blank">
-    <img src="https://github.com/user-attachments/assets/a41be0a5-b8d2-41ad-9675-7a6f62788d39" width="400" alt="Wajibati Logo">
+    <img src="https://github.com/user-attachments/assets/b93fb162-67cb-42e6-9f18-df59781f4aec" width="400" alt="Wajibati Logo">
   </a>
 </p>
 
