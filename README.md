@@ -2,7 +2,7 @@
 
  <p align="center">
   <a href="#" target="_blank">
-    <img src="https://your-logo-url.com/logo.png" width="400" alt="Wajibati Logo">
+    <img src="https://github.com/user-attachments/assets/7ea3a3e1-50e2-482e-ae51-e28d41bf1dbd" width="400" alt="Wajibati Logo">
   </a>
 </p>
 
