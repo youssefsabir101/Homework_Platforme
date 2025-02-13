@@ -7,8 +7,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/your-repo/actions">
-    <img src="https://github.com/your-repo/workflows/tests/badge.svg" alt="Build Status">
+  <a href="[https://github.com/your-repo/actions](https://github.com/youssefsabir101/Homework_Platforme)">
+    <img src="[https://github.com/your-repo](https://github.com/youssefsabir101/Homework_Platform)/workflows/tests/badge.svg" alt="Build Status">
   </a>
   <a href="https://your-deployment-link.com">
     <img src="https://img.shields.io/badge/deployed-live-success" alt="Live Deployment">
