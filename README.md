@@ -2,14 +2,11 @@
 
  <p align="center">
   <a href="#" target="_blank">
-    <img src="https://github.com/user-attachments/assets/7ea3a3e1-50e2-482e-ae51-e28d41bf1dbd" width="400" alt="Wajibati Logo">
+    <img src="[https://github.com/user-attachments/assets/7ea3a3e1-50e2-482e-ae51-e28d41bf1dbd](https://github.com/user-attachments/assets/a41be0a5-b8d2-41ad-9675-7a6f62788d39)" width="400" alt="Wajibati Logo">
   </a>
 </p>
 
 <p align="center">
-  <a href="[https://github.com/your-repo/actions](https://github.com/youssefsabir101/Homework_Platforme)">
-    <img src="[https://github.com/your-repo](https://github.com/youssefsabir101/Homework_Platform)/workflows/tests/badge.svg" alt="Build Status">
-  </a>
   <a href="https://your-deployment-link.com">
     <img src="https://img.shields.io/badge/deployed-live-success" alt="Live Deployment">
   </a>
